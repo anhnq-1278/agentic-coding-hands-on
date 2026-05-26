@@ -3,6 +3,21 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* SAA 2025 — Login screen tokens (sourced from Figma frame 662:14387) */
+  --color-saa-bg: #00101a;
+  --color-saa-header: rgba(11, 15, 18, 0.8);
+  --color-saa-divider: #2e3940;
+  --color-saa-text-primary: #ffffff;
+  --color-saa-text-muted: #c9d1d6;
+  --color-saa-cta-bg: #ffea9e;
+  --color-saa-cta-text: #00101a;
+
+  /* Homepage SAA — additional tokens (sourced from Figma frame 2167:9026) */
+  --color-saa-app-header: rgba(16, 20, 23, 0.8);
+  --color-saa-border: #998c5f;
+  --color-saa-badge: #d4271d;
+  --color-saa-glow: #fae287;
 }
 
 @theme inline {
@@ -10,6 +25,21 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Expose SAA tokens as Tailwind utilities (bg-saa-bg, text-saa-muted, border-saa-divider, …) */
+  --color-saa-bg: var(--color-saa-bg);
+  --color-saa-header: var(--color-saa-header);
+  --color-saa-divider: var(--color-saa-divider);
+  --color-saa-text-primary: var(--color-saa-text-primary);
+  --color-saa-text-muted: var(--color-saa-text-muted);
+  --color-saa-cta-bg: var(--color-saa-cta-bg);
+  --color-saa-cta-text: var(--color-saa-cta-text);
+  --color-saa-app-header: var(--color-saa-app-header);
+  --color-saa-border: var(--color-saa-border);
+  --color-saa-badge: var(--color-saa-badge);
+  --color-saa-glow: var(--color-saa-glow);
+  --font-montserrat: var(--font-montserrat);
+  --font-orbitron: var(--font-orbitron);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +53,24 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/*
+ * Custom scrollbar for Sun* Kudos sidebar D.3 leaderboard. Matches Figma
+ * `Frame 545` (2940:13521) — 2px-wide gray (`#999`) thumb, fully rounded
+ * (radius 8), with 10px padding on the track so the thumb sits inset.
+ */
+.saa-thin-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #999999 transparent;
+}
+.saa-thin-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.saa-thin-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.saa-thin-scroll::-webkit-scrollbar-thumb {
+  background-color: #999999;
+  border-radius: 8px;
 }
